@@ -1,0 +1,19 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:ca_keystore.p12
+    key-store-password: changeit
+    trust-store: classpath:ca_truststore.jks
+    trust-store-password: changeit
+    client-auth: need
+app:
+  security:
+    credentials:
+      alice:
+        password: changeit
+        roles: USER
+      bob:
+        password: changeit
+        roles: USER
+    x509:
+      subject-principal-regex: CN=(.*?)(?:,|$)
